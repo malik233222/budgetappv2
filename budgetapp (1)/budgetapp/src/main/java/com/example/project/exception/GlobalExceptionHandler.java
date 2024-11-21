@@ -11,15 +11,13 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // Handle OurException
     @ExceptionHandler(OurException.class)
     public ResponseEntity<Map<String, String>> handleOurException(OurException ex) {
         Map<String, String> response = new HashMap<>();
         response.put("message", ex.getMessage());
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
     }
 
-    // Handle generic exceptions
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, String>> handleGenericException(Exception ex) {
         Map<String, String> response = new HashMap<>();

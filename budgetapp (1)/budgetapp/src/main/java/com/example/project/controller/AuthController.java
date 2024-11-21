@@ -1,14 +1,13 @@
 package com.example.project.controller;
 
 import com.example.project.dto.request.UserRequestDTO;
+import com.example.project.exception.OurException;
 import com.example.project.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.http.HttpStatus;
-
-import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -23,7 +22,7 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody UserRequestDTO userRequestDTO) {
         userService.register(userRequestDTO.getUsername(), userRequestDTO.getPassword(), "ROLE_USER");
-        return ResponseEntity.ok("Kullanıcı başarıyla kaydedildi");
+        return ResponseEntity.ok("User registered successfully");
     }
 
     @GetMapping("/login")

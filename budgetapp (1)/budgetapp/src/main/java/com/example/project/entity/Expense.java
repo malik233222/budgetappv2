@@ -17,6 +17,7 @@ public class Expense {
 
     private Double amount;
 
+    @Column(nullable = false) // Tarih null olamaz
     private LocalDate date;
 
     private String description;

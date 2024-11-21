@@ -15,13 +15,15 @@ public class ExpenseController {
     @Autowired
     private ExpenseService expenseService;
 
-    @GetMapping
-    public List<ExpenseResponseDTO> getAllExpenses() {
-        return expenseService.getAllExpenses();
-    }
+
 
     @PostMapping
     public ExpenseResponseDTO createExpense(@RequestBody ExpenseRequestDTO expenseRequestDTO) {
         return expenseService.createExpense(expenseRequestDTO);
     }
+    @GetMapping
+    public List<ExpenseResponseDTO> getAllExpenses() {
+        return expenseService.getAllExpenses();
+    }
+
 }
